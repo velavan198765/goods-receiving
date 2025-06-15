@@ -6,8 +6,6 @@ from PySide6.QtWidgets import (
 )
 from PySide6.QtCore import Qt
 
-
-# ---------- Database Setup ----------
 def init_db():
     conn = sqlite3.connect("goods.db")
     cursor = conn.cursor()
@@ -43,8 +41,6 @@ def init_db():
     conn.commit()
     conn.close()
 
-
-# ---------- Login Page ----------
 class LoginPage(QWidget):
     def __init__(self, stacked_widget):
         super().__init__()
@@ -81,8 +77,6 @@ class LoginPage(QWidget):
         else:
             QMessageBox.critical(self, "Login Failed", "Invalid username or password.")
 
-
-# ---------- Goods Receiving Page ----------
 class GoodsPage(QWidget):
     def __init__(self):
         super().__init__()
@@ -144,8 +138,6 @@ class GoodsPage(QWidget):
         for widget in [self.production, self.supplier, self.quantity, self.uom, self.rate, self.tax]:
             widget.clear()
 
-
-# ---------- Main Application ----------
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
@@ -161,8 +153,6 @@ class MainWindow(QMainWindow):
 
         self.setCentralWidget(self.stack)
 
-
-# ---------- Run Application ----------
 if __name__ == "__main__":
     init_db()
 
