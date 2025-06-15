@@ -29,8 +29,6 @@ def init_db():
             tax REAL
         )
     ''')
-
-    # Insert default users
     users = [("goods_receiver", "gr@123"), ("viewer", "view@123")]
     for user in users:
         try:
