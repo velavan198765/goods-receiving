@@ -9,8 +9,7 @@ from PySide6.QtCore import Qt
 def init_db():
     conn = sqlite3.connect("goods.db")
     cursor = conn.cursor()
-
-    # Create tables
+    
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS users (
             username TEXT PRIMARY KEY,
@@ -34,7 +33,7 @@ def init_db():
         try:
             cursor.execute("INSERT INTO users VALUES (?, ?)", user)
         except sqlite3.IntegrityError:
-            pass  # Already exists
+            pass 
 
     conn.commit()
     conn.close()
